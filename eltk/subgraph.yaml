@@ -10,7 +10,7 @@ dataSources:
     source:
       address: "0xc26a19e8b51241d8a0e60773a9b24acca42ae69e"
       abi: ELTK
-      startBlock: 86167847
+      startBlock: 86167843
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
