@@ -1,0 +1,8 @@
+{
+  "mainnet": {
+    "ELTK": {
+      "address": "0xc26a19e8b51241d8a0e60773a9b24acca42ae69e",
+      "startBlock": 80524083
+    }
+  }
+}

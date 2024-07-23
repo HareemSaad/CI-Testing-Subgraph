@@ -1,0 +1,44 @@
+specVersion: 0.0.7
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: ELTK
+    network: mainnet
+    source:
+      address: "0xc26a19e8b51241d8a0e60773a9b24acca42ae69e"
+      abi: ELTK
+      startBlock: 86167847
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Approval
+        - EIP712DomainChanged
+        - MinterAdded
+        - OwnershipTransferred
+        - Paused
+        - Transfer
+        - Unpaused
+      abis:
+        - name: ELTK
+          file: ./abis/ELTK.json
+      eventHandlers:
+        - event: Approval(indexed address,indexed address,uint256)
+          handler: handleApproval
+        - event: EIP712DomainChanged()
+          handler: handleEIP712DomainChanged
+        - event: MinterAdded(address,bool)
+          handler: handleMinterAdded
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: Paused(address)
+          handler: handlePaused
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+        - event: Unpaused(address)
+          handler: handleUnpaused
+      file: ./src/eltk.ts
